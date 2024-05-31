@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7f6eacf65e818ce8f910ab652a47e83f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7f6eacf65e818ce8f910ab652a47e83f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7f6eacf65e818ce8f910ab652a47e83f = L.map(
+                "map_7f6eacf65e818ce8f910ab652a47e83f",
+                {
+                    center: [28.6139, 77.209],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4e42f85e249e76970086c941281329ea = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_4e42f85e249e76970086c941281329ea.addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var marker_de7a072e8fc8ce5870d08ca51c587e6a = L.marker(
+                [28.5721, 77.3545],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_0e6225d3ed510b9476e529df9eb1899f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_de7a072e8fc8ce5870d08ca51c587e6a.setIcon(icon_0e6225d3ed510b9476e529df9eb1899f);
+        
+    
+        var popup_370906b870f6320c4d45278682259df6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2307f888fc435e8835d87ae76209244e = $(`<div id="html_2307f888fc435e8835d87ae76209244e" style="width: 100.0%; height: 100.0%;">Stop ID: 233</div>`)[0];
+                popup_370906b870f6320c4d45278682259df6.setContent(html_2307f888fc435e8835d87ae76209244e);
+            
+        
+
+        marker_de7a072e8fc8ce5870d08ca51c587e6a.bindPopup(popup_370906b870f6320c4d45278682259df6)
+        ;
+
+        
+    
+    
+            var marker_80f64f404d927bc6404ff3f7bde7d74c = L.marker(
+                [28.6129, 77.2295],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_f32bff5a257922eac24a1f3f0a51b1ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_80f64f404d927bc6404ff3f7bde7d74c.setIcon(icon_f32bff5a257922eac24a1f3f0a51b1ae);
+        
+    
+        var popup_20ec4697df365e233679db12f53027e3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_23710090542f5b0e496a2d7aa30ceb45 = $(`<div id="html_23710090542f5b0e496a2d7aa30ceb45" style="width: 100.0%; height: 100.0%;">Stop ID: 89</div>`)[0];
+                popup_20ec4697df365e233679db12f53027e3.setContent(html_23710090542f5b0e496a2d7aa30ceb45);
+            
+        
+
+        marker_80f64f404d927bc6404ff3f7bde7d74c.bindPopup(popup_20ec4697df365e233679db12f53027e3)
+        ;
+
+        
+    
+    
+            var poly_line_9c504ec1fd812b73937124ed606fc335 = L.polyline(
+                [[28.5721, 77.3545], [28.6129, 77.2295]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            poly_line_9c504ec1fd812b73937124ed606fc335.bindTooltip(
+                `<div>
+                     BLUE_Noida Electronic City to Dwarka Sector - 21
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_aafb7a32eb9233a5d54cbb8e719f2eb8 = L.marker(
+                [28.6129, 77.2295],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_a1619a728c745469abbdb969ab916769 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_aafb7a32eb9233a5d54cbb8e719f2eb8.setIcon(icon_a1619a728c745469abbdb969ab916769);
+        
+    
+        var popup_a23c91589abac138cb80b2bd18021211 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_91f1f5cdcfa80025da2a3878b0cc3ace = $(`<div id="html_91f1f5cdcfa80025da2a3878b0cc3ace" style="width: 100.0%; height: 100.0%;">Stop ID: 89</div>`)[0];
+                popup_a23c91589abac138cb80b2bd18021211.setContent(html_91f1f5cdcfa80025da2a3878b0cc3ace);
+            
+        
+
+        marker_aafb7a32eb9233a5d54cbb8e719f2eb8.bindPopup(popup_a23c91589abac138cb80b2bd18021211)
+        ;
+
+        
+    
+    
+            var marker_ba32dfc5bfa08fe28a54dede5ae57ec1 = L.marker(
+                [28.5245, 77.1855],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_c0339d2c49877ef73560167ce6e167ab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ba32dfc5bfa08fe28a54dede5ae57ec1.setIcon(icon_c0339d2c49877ef73560167ce6e167ab);
+        
+    
+        var popup_0e2dfae3f09eb684f851f295dbe3130b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_88733b0a8c0208e94534a88869a312e9 = $(`<div id="html_88733b0a8c0208e94534a88869a312e9" style="width: 100.0%; height: 100.0%;">Stop ID: 92</div>`)[0];
+                popup_0e2dfae3f09eb684f851f295dbe3130b.setContent(html_88733b0a8c0208e94534a88869a312e9);
+            
+        
+
+        marker_ba32dfc5bfa08fe28a54dede5ae57ec1.bindPopup(popup_0e2dfae3f09eb684f851f295dbe3130b)
+        ;
+
+        
+    
+    
+            var poly_line_e0bd1e725338c2b1dd700fa3f5722398 = L.polyline(
+                [[28.6129, 77.2295], [28.5245, 77.1855]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            poly_line_e0bd1e725338c2b1dd700fa3f5722398.bindTooltip(
+                `<div>
+                     BLUE_Vaishali to Dwarka Sector - 21
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0467ceb989cd4ef7878184d790545184 = L.marker(
+                [28.5245, 77.1855],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_164ee5aa977f84ee9d1ba8108ec74ab0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_0467ceb989cd4ef7878184d790545184.setIcon(icon_164ee5aa977f84ee9d1ba8108ec74ab0);
+        
+    
+        var popup_e9a572060a8883c5e3c9fab8216284f8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9872bf458bd8844246deed869073abb8 = $(`<div id="html_9872bf458bd8844246deed869073abb8" style="width: 100.0%; height: 100.0%;">Stop ID: 92</div>`)[0];
+                popup_e9a572060a8883c5e3c9fab8216284f8.setContent(html_9872bf458bd8844246deed869073abb8);
+            
+        
+
+        marker_0467ceb989cd4ef7878184d790545184.bindPopup(popup_e9a572060a8883c5e3c9fab8216284f8)
+        ;
+
+        
+    
+    
+            var marker_9571a5423fe64d82b98f7ca6ec9995aa = L.marker(
+                [28.6692, 77.2251],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_ab8bf587c3b865c746ca7b863bc3f36b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9571a5423fe64d82b98f7ca6ec9995aa.setIcon(icon_ab8bf587c3b865c746ca7b863bc3f36b);
+        
+    
+        var popup_4135a4061c58ba5832f22e0b699f5037 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2c8112d69e6a8a5bd7f1bc9d2e963583 = $(`<div id="html_2c8112d69e6a8a5bd7f1bc9d2e963583" style="width: 100.0%; height: 100.0%;">Stop ID: 8</div>`)[0];
+                popup_4135a4061c58ba5832f22e0b699f5037.setContent(html_2c8112d69e6a8a5bd7f1bc9d2e963583);
+            
+        
+
+        marker_9571a5423fe64d82b98f7ca6ec9995aa.bindPopup(popup_4135a4061c58ba5832f22e0b699f5037)
+        ;
+
+        
+    
+    
+            var poly_line_32fe5893554fa726a40d646dadff6384 = L.polyline(
+                [[28.5245, 77.1855], [28.6692, 77.2251]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            poly_line_32fe5893554fa726a40d646dadff6384.bindTooltip(
+                `<div>
+                     VIOLET_Raja Nahar Singh to Kashmere Gate
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6f91d9bb67d0905d366898c0a7724ed2 = L.marker(
+                [28.6692, 77.2251],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_d3e6a7b9dea099580a5b9727cf1e559c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_6f91d9bb67d0905d366898c0a7724ed2.setIcon(icon_d3e6a7b9dea099580a5b9727cf1e559c);
+        
+    
+        var popup_a5e80b88d7c7e8a9d0249eda9719b702 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a0e81abb4f65079324f25bf7a4e0f150 = $(`<div id="html_a0e81abb4f65079324f25bf7a4e0f150" style="width: 100.0%; height: 100.0%;">Stop ID: 8</div>`)[0];
+                popup_a5e80b88d7c7e8a9d0249eda9719b702.setContent(html_a0e81abb4f65079324f25bf7a4e0f150);
+            
+        
+
+        marker_6f91d9bb67d0905d366898c0a7724ed2.bindPopup(popup_a5e80b88d7c7e8a9d0249eda9719b702)
+        ;
+
+        
+    
+    
+            var marker_0f8d7dfb2666e99744a42a87f8a7e0d3 = L.marker(
+                [28.6675, 77.1762],
+                {}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            var icon_bbec32fc484ab54d2786fc01fdead733 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0f8d7dfb2666e99744a42a87f8a7e0d3.setIcon(icon_bbec32fc484ab54d2786fc01fdead733);
+        
+    
+        var popup_d8e63b4b7ac622aa6b0ec4fe5d214111 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7cdb85e26de45cf17f8618e266b9dcef = $(`<div id="html_7cdb85e26de45cf17f8618e266b9dcef" style="width: 100.0%; height: 100.0%;">Stop ID: 11</div>`)[0];
+                popup_d8e63b4b7ac622aa6b0ec4fe5d214111.setContent(html_7cdb85e26de45cf17f8618e266b9dcef);
+            
+        
+
+        marker_0f8d7dfb2666e99744a42a87f8a7e0d3.bindPopup(popup_d8e63b4b7ac622aa6b0ec4fe5d214111)
+        ;
+
+        
+    
+    
+            var poly_line_c23616e45b26d9b874349a56ef133dce = L.polyline(
+                [[28.6692, 77.2251], [28.6675, 77.1762]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_7f6eacf65e818ce8f910ab652a47e83f);
+        
+    
+            poly_line_c23616e45b26d9b874349a56ef133dce.bindTooltip(
+                `<div>
+                     RED_Dilshad Garden  to Rithala
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
