@@ -35,6 +35,12 @@ def get_route_segments(shortest_path, graph):
     path_edges = list(zip(shortest_path, shortest_path[1:]))
     route_ids = [graph.get_edge_data(u, v)['route_id'] for u, v in path_edges]
 
+    distance = 0
+    distances={}
+    for i in range(len(shortest_path)-1):
+        distance += graph.get_edge_data(shortest_path[i], shortest_path[i+1])['weight'] 
+        distances[shortest_path[i+1]] = distance
+    
     current_route_id = route_ids[0]
     current_route_name = routes_df[routes_df['route_id'] == current_route_id]['route_long_name'].values[0]
     current_route_start, current_route_end = current_route_name.split('_')[1].split(' to ')
@@ -55,6 +61,7 @@ def get_route_segments(shortest_path, graph):
                 'to_stop': int(end_stop),
                 'route_name': current_route_name,
                 'route_id': int(current_route_id),
+                'distance': distances[end_stop],
             })
             current_route_id = route_ids[i]
             current_route_name = routes_df[routes_df['route_id'] == current_route_id]['route_long_name'].values[0]
@@ -67,6 +74,7 @@ def get_route_segments(shortest_path, graph):
         'to_stop': int(end_stop),
         'route_name': current_route_name,
         'route_id': int(current_route_id),
+        'distance': distances[end_stop],
     })
 
     return route_segments
@@ -138,7 +146,7 @@ def calculate_route_distance():
         
         try:
             shortest_path = nx.dijkstra_path(G_distance, source=start_stop_id, target=end_stop_id, weight='weight')
-            # print(shortest_path)
+            # calculate distance
             route_segments = get_route_segments(shortest_path, G_distance)
         except nx.NetworkXNoPath:
             return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
