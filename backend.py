@@ -15,6 +15,9 @@ with open('processed_data.pkl', 'rb') as f:
 
 with open('graph.pkl', 'rb') as f:
     G = pickle.load(f)
+    
+with open('graph_2.pkl', 'rb') as f:
+    G_distance = pickle.load(f)
 
 def find_nearest_stop(coords):
     min_distance = float('inf')
@@ -98,6 +101,45 @@ def calculate_route():
             shortest_path = nx.dijkstra_path(G, source=start_stop_id, target=end_stop_id, weight='weight')
             # print(shortest_path)
             route_segments = get_route_segments(shortest_path, G)
+        except nx.NetworkXNoPath:
+            return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
+
+        print(route_segments)
+        return jsonify(route_segments)
+    
+    except Exception as e:
+        print('Error:', e)
+        return jsonify({'error': str(e)}), 400
+    
+@app.route('/calculate_route_distance', methods=['POST'])
+def calculate_route_distance():
+    print('Calculating route request from', request.remote_addr)
+    print('Request data:', request.json)
+    data = request.json
+    try:
+        if 'start_stop_id' in data:
+            start_stop_id = data['start_stop_id']
+        elif 'start_coords' in data:
+            start_coords = tuple(data['start_coords'])
+            start_stop_id = find_nearest_stop(start_coords)
+        else:
+            return jsonify({'error': 'Either start_stop_id or start_coords must be provided'}), 400
+        
+        if 'end_stop_id' in data:
+            end_stop_id = data['end_stop_id']
+        elif 'end_coords' in data:
+            end_coords = tuple(data['end_coords'])
+            end_stop_id = find_nearest_stop(end_coords)
+        else:
+            return jsonify({'error': 'Either end_stop_id or end_coords must be provided'}), 400
+        
+        if start_stop_id == end_stop_id:
+            return jsonify({'error': 'Start and end stops are the same'})
+        
+        try:
+            shortest_path = nx.dijkstra_path(G_distance, source=start_stop_id, target=end_stop_id, weight='weight')
+            # print(shortest_path)
+            route_segments = get_route_segments(shortest_path, G_distance)
         except nx.NetworkXNoPath:
             return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
 
