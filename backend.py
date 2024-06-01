@@ -149,7 +149,11 @@ def calculate_route_distance():
             # calculate distance
             route_segments = get_route_segments(shortest_path, G_distance)
         except nx.NetworkXNoPath:
-            return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
+            try:
+                shortest_path = nx.dijkstra_path(G, source=start_stop_id, target=end_stop_id, weight='weight')
+                route_segments = get_route_segments(shortest_path, G)
+            except nx.NetworkXNoPath:
+                return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
 
         print(route_segments)
         return jsonify(route_segments)
