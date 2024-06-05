@@ -19,6 +19,8 @@ for trip_id, stop_ids in trip_stop_map.items():
     for i in range(len(stop_ids) - 1):
         route_id = trips_df[trips_df['trip_id'] == trip_id]['route_id'].values[0]
         G.add_edge(stop_ids[i], stop_ids[i + 1], weight=1, route_id=route_id)
+        
+G.add_edge(234, 500, weight=0.0, route_id=16)
 
 with open('graph.pkl', 'wb') as f:
     pickle.dump(G, f)
