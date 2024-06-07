@@ -30,6 +30,7 @@ for trip_id, stop_ids in trip_stop_map.items():
         G_distance.add_edge(stop_ids[i], stop_ids[i + 1], weight=distance, route_id=route_id)
     
 G_distance.add_edge(234, 500, weight=0.0, route_id=16)
+G_distance.add_edge(500, 234, weight=0.0, route_id=34)
 
 with open('graph_2.pkl', 'wb') as f:
     pickle.dump(G_distance, f)

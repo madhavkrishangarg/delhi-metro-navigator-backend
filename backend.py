@@ -112,7 +112,8 @@ def calculate_route():
         except nx.NetworkXNoPath:
             return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
 
-        print(route_segments)
+        if(route_segments == []):
+            print('No route found')
         return jsonify(route_segments)
     
     except Exception as e:
@@ -155,7 +156,9 @@ def calculate_route_distance():
             except nx.NetworkXNoPath:
                 return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
 
-        print(route_segments)
+        if(route_segments == []):
+            print('No route found')
+            
         return jsonify(route_segments)
     
     except Exception as e:

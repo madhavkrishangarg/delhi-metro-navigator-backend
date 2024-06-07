@@ -21,6 +21,7 @@ for trip_id, stop_ids in trip_stop_map.items():
         G.add_edge(stop_ids[i], stop_ids[i + 1], weight=1, route_id=route_id)
         
 G.add_edge(234, 500, weight=0.0, route_id=16)
+G.add_edge(500, 234, weight=0.0, route_id=34)
 
 with open('graph.pkl', 'wb') as f:
     pickle.dump(G, f)
