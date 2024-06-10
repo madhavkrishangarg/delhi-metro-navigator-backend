@@ -20,14 +20,8 @@ with open('graph_2.pkl', 'rb') as f:
     G_distance = pickle.load(f)
 
 def find_nearest_stop(coords):
-    min_distance = float('inf')
-    nearest_stop_id = None
-    for i, stop in stops_df.iterrows():
-        stop_coords = (stop['stop_lat'], stop['stop_lon'])
-        distance = geodesic(coords, stop_coords).meters
-        if distance < min_distance:
-            min_distance = distance
-            nearest_stop_id = stop['stop_id']
+    stops_df['distance'] = stops_df.apply(lambda row: geodesic(coords, (row['stop_lat'], row['stop_lon'])).meters, axis=1)
+    nearest_stop_id = stops_df.loc[stops_df['distance'].idxmin(), 'stop_id']
     return nearest_stop_id
 
 def get_route_segments(shortest_path, graph):
