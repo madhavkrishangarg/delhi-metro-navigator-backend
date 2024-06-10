@@ -35,8 +35,10 @@ def get_route_segments(shortest_path, graph):
         distance += graph.get_edge_data(shortest_path[i], shortest_path[i+1])['weight'] 
         distances[shortest_path[i+1]] = distance
     
+    route_id_to_name = routes_df.set_index('route_id')['route_long_name'].to_dict()
+
     current_route_id = route_ids[0]
-    current_route_name = routes_df[routes_df['route_id'] == current_route_id]['route_long_name'].values[0]
+    current_route_name = route_id_to_name[current_route_id]
     current_route_start, current_route_end = current_route_name.split('_')[1].split(' to ')
     current_route_start = current_route_start.strip()
     current_route_end = current_route_end.strip()
@@ -44,7 +46,7 @@ def get_route_segments(shortest_path, graph):
 
     for i in range(1, len(route_ids)):
         new_route_id = route_ids[i]
-        new_route_name = routes_df[routes_df['route_id'] == new_route_id]['route_long_name'].values[0]
+        new_route_name = route_id_to_name[new_route_id]
         new_route_start, new_route_end = new_route_name.split('_')[1].split(' to ')
         new_route_start = new_route_start.strip()
         new_route_end = new_route_end.strip()
@@ -58,7 +60,7 @@ def get_route_segments(shortest_path, graph):
                 'distance': distances[end_stop],
             })
             current_route_id = route_ids[i]
-            current_route_name = routes_df[routes_df['route_id'] == current_route_id]['route_long_name'].values[0]
+            current_route_name = route_id_to_name[current_route_id]
             current_route_start, current_route_end = new_route_start, new_route_end
             start_stop = end_stop
 
@@ -72,6 +74,7 @@ def get_route_segments(shortest_path, graph):
     })
 
     return route_segments
+
 
 
 @app.route('/calculate_route', methods=['POST'])
