@@ -143,12 +143,12 @@ def calculate_route_distance():
             return jsonify({'error': 'Start and end stops are the same'})
         
         try:
-            shortest_path = nx.dijkstra_path(G_distance, source=start_stop_id, target=end_stop_id, weight='weight')
+            shortest_path = nx.astar_path(G_distance, start_stop_id, end_stop_id, heuristic=lambda u, v: geodesic((G_distance.nodes[u]['lat'], G_distance.nodes[u]['lon']), (G_distance.nodes[v]['lat'], G_distance.nodes[v]['lon'])).meters, weight='weight')
             # calculate distance
             route_segments = get_route_segments(shortest_path, G_distance)
         except nx.NetworkXNoPath:
             try:
-                shortest_path = nx.dijkstra_path(G, source=start_stop_id, target=end_stop_id, weight='weight')
+                shortest_path = nx.astar_path(G_distance, start_stop_id, end_stop_id, heuristic=lambda u, v: geodesic((G_distance.nodes[u]['lat'], G_distance.nodes[u]['lon']), (G_distance.nodes[v]['lat'], G_distance.nodes[v]['lon'])).meters, weight='weight')
                 route_segments = get_route_segments(shortest_path, G)
             except nx.NetworkXNoPath:
                 return jsonify({'error': f'No path found between stops {start_stop_id} and {end_stop_id}'})
