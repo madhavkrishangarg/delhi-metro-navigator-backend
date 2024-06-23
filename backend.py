@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask_caching import Cache
 import networkx as nx
 import pandas as pd
 import pickle
@@ -9,6 +10,8 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 CORS(app)
+
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 with open('processed_data.pkl', 'rb') as f:
     (stops_df, routes_df, shapes_df, trips_df, stops_list_df, dict_routes, lines_color_map, routes_trip_map, trip_stop_map, trip_stop_map_translated, list_list_stops, stop_time_map, stop_trip_map) = pickle.load(f)
@@ -24,6 +27,7 @@ def find_nearest_stop(coords):
     nearest_stop_id = stops_df.loc[stops_df['distance'].idxmin(), 'stop_id']
     return nearest_stop_id
 
+@cache.memoize(timeout=3600)
 def get_route_segments(shortest_path, graph):
     route_segments = []
     path_edges = list(zip(shortest_path, shortest_path[1:]))
